@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Resident Ayu - Apocalypse</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Crimson+Text:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      background:#1a1216 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+   .container {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      font-family: 'Cinzel', serif;
+    }
+
+   .re4-text {
+      font-size: 60px;
+      font-weight: 700;
+      color: #c0c0c0;
+      text-transform: uppercase;
+      letter-spacing: 12px;
+      text-shadow: 0 0 2px #fff, 0 0 5px #888, 2px 2px 0px #333;
+      animation: flicker 4s infinite alternate;
+      position: relative;
+      margin-bottom: 5px; /* Kasih jarak ke tulisan apocalypse */
+    }
+
+    /* TULISAN APOCALYPSE KECIL */
+   .apocalypse-text {
+      font-size: 18px;
+      font-weight: 400;
+      color: #8B0000;
+      text-transform: uppercase;
+      letter-spacing: 8px;
+      font-family: 'Crimson Text', serif;
+      text-shadow: 0 0 8px #FF0000, 1px 1px 0px #000;
+      opacity: 0.7;
+      animation: glow 3s infinite alternate;
+    }
+
+    @keyframes flicker {
+      0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; }
+      20%, 24%, 55% { opacity: 0.3; text-shadow: none; }
+    }
+
+    @keyframes glow {
+      0% { opacity: 0.4; text-shadow: 0 0 5px #FF0000; }
+      100% { opacity: 0.8; text-shadow: 0 0 15px #FF0000, 0 0 25px #8B0000; }
+    }
+
+    /* EFEK TETESAN DARAH */
+   .blood-drop {
+      position: absolute;
+      width: 8px;
+      background: linear-gradient(to bottom, #B80000, #4A0000);
+      border-radius: 0 0 60% 60%;
+      animation: drip linear infinite;
+      box-shadow: 0 0 8px #FF0000, inset 0 -5px 5px #5A0000;
+    }
+
+    @keyframes drip {
+      0% { height: 0px; opacity: 1; }
+      70% { height: 70px; opacity: 1; }
+      100% { height: 90px; opacity: 0; transform: translateY(30px); }
+    }
+
+    /* AUDIO DI TENGAH */
+    audio {
+      margin-top: 40px;
+      width: 300px;
+      height: 40px;
+      border-radius: 20px;
+      filter: drop-shadow(0 0 10px #000);
+    }
+
+    audio::-webkit-media-controls-panel {
+      background: linear-gradient(to right, #0a0a1a, #1a0000);
+      border: 1px solid #8B0000;
+      border-radius: 20px;
+    }
+
+    audio::-webkit-media-controls-play-button {
+      background-color: #8B0000;
+      border-radius: 50%;
+    }
+
+    audio::-webkit-media-controls-timeline {
+      background-color: #8B0000;
+      border-radius: 10px;
+    }
+  </style>
+
+<style>
+/* EFEK APOCALIPTO FLASH BUAT RESIDENT AYU */
+.re4-text {
+  font-family: 'Impact', 'Arial Black', sans-serif;
+  font-size: 60px;
+  text-align: center;
+  color: #ff0000;
+  letter-spacing: 6px;
+  font-weight: 900;
+  text-shadow: 0 0 5px #ff0000;
+  
+  /* Animasi utamanya di sini min */
+  animation: apocaliptoFlash 3s infinite;
+}
+
+@keyframes apocaliptoFlash {
+  /* 1. MULAI GELAP - kayak hati pas inget dia */
+  0% { 
+    opacity: 0; 
+    transform: scale(0.8) skewX(-10deg); 
+    filter: blur(8px);
+    text-shadow: none;
+  }
+  
+  /* 2. FLASH PETIR NYAMBER - TERANG BANGET! */
+  5% { 
+    opacity: 1; 
+    transform: scale(1.2) skewX(0deg); 
+    filter: blur(0);
+    color: #ffffff;
+    text-shadow: 
+      0 0 10px #fff, 
+      0 0 20px #fff, 
+      0 0 40px #ff0000, 
+      0 0 80px #ff0000,
+      0 0 120px #8B0000; /* Cahaya kiamat */
+  }
+  
+  /* 3. KEDIP KEDUA - kayak jantung pas denger namanya */
+  10% { opacity: 0.3; transform: scale(1); }
+  15% { 
+    opacity: 1; 
+    color: #ff0000;
+    text-shadow: 0 0 5px #ff0000, 0 0 20px #ff0000; 
+  }
+  
+  /* 4. BERTAHAN SEBENTAR - kayak kenangan di masjid */
+  25% { opacity: 1; transform: scale(1); }
+  
+  /* 5. MEMUDAR PELAN-PELAN - kayak lu ngikhlasin dia */
+  100% { 
+    opacity: 0; 
+    transform: scale(0.9); 
+    filter: blur(5px);
+    text-shadow: none;
+  }
+}
+
+/* BONUS: Biar makin geter kayak gempa hati */
+.container {
+  animation: shake 0.5s;
+  animation-iteration-count: 1;
+  animation-delay: 0.15s; /* Geter pas flash kedua */
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px); }
+  25% { transform: translate(-1px, -2px); }
+  50% { transform: translate(-3px, 0px); }
+  75% { transform: translate(3px, 2px); }
+  100% { transform: translate(1px, -1px); }
+}
+</style>
+
+
+
+
+</head>
+
+<body>
+    <!-- AUDIO PISAU KRAUSER -->
+    <audio id="knifeSound" preload="auto">
+        <source src="knife-slash.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- TOMBOL START -->
+    <button id="startBtn" style="
+        position: fixed; 
+        top: 50%; left: 50%; 
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+        padding: 20px 40px;
+        font-size: 24px;
+        font-family: Impact;
+        background: #8B0000;
+        color: white;
+        border: 3px solid #ff0000;
+        cursor: pointer;
+        letter-spacing: 3px;
+    ">MULAI APOCALIPTO</button>
+
+    <div class="container" style="display: none;" id="mainContent">
+        <div class="re4-text" id="textRE"></div>
+        <img src="" alt="" class="krauser-animasi" id="krauserImg">
+    </div>
+<script>
+  const knifeSound = document.getElementById('knifeSound');
+  const krauserImg = document.getElementById('krauserImg');
+  const startBtn = document.getElementById('startBtn');
+  const mainContent = document.getElementById('mainContent');
+
+  startBtn.addEventListener('click', () => {
+    // 1. Hilangin tombol
+    startBtn.style.display = 'none';
+    // 2. Munculin konten
+    mainContent.style.display = 'block';
+    // 3. LANGSUNG BUNYI SRETT!
+    knifeSound.volume = 0.5;
+    knifeSound.play();
+  });
+
+  // Biar bunyi tiap Krauser muncul ulang
+  krauserImg.addEventListener('animationiteration', () => {
+    knifeSound.currentTime = 0;
+    knifeSound.play();
+  });
+</script>
+</body>
+
+  <div class="container">
+
+
+<div class="container">
+
+
+    <!-- GAMBAR JACK KRAUSER -->
+    <img src="krauser.png" alt="Jack Krauser" class="krauser-animasi">
+    
+</div>
+
+<style>
+/* CSS BUAT KRAUSER MUNCUL HILANG */
+.krauser-animasi {
+  width: 250px; /* Gedein kecilin sesuai selera */
+  display: block;
+  margin: 20px auto 0 auto;
+  opacity: 0;
+  filter: brightness(0.5) contrast(1.5) drop-shadow(0 0 15px #ff0000);
+  
+  /* Animasi: Muncul dari kegelapan + flash + ngilang */
+  animation: krauserMuncul 5s infinite;
+}
+
+@keyframes krauserMuncul {
+  /* 1. Mulai dari gelap total */
+  0% { 
+    opacity: 0; 
+    transform: translateY(50px) scale(0.8); 
+    filter: brightness(0) blur(10px); 
+  }
+  
+  /* 2. FLASH PETIR! Krauser keliatan jelas + aura merah */
+  10% { 
+    opacity: 1; 
+    transform: translateY(0) scale(1.1); 
+    filter: brightness(2) contrast(1.2) blur(0) drop-shadow(0 0 5px #fff) drop-shadow(0 0 30px #ff0000); 
+  }
+  
+  /* 3. Balik normal tapi masih sangar */
+  20% { 
+    opacity: 1; 
+    transform: scale(1); 
+    filter: brightness(0.8) contrast(1.5) drop-shadow(0 0 15px #8B0000); 
+  }
+  
+  /* 4. Bertahan bentar kayak boss nunggu lu nyerang */
+  70% { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+  
+  /* 5. NGILANG PELAN kayak harapan balikan sama Ayu */
+  100% { 
+    opacity: 0; 
+    transform: translateY(-30px) scale(0.9); 
+    filter: brightness(0) blur(8px); 
+  }
+}
+</style>
+
+
+
+
+
+
+    <div class="re4-text" id="textRE">RESIDENT AYU</div>
+    
+     <!-- TAMBAHIN INI, DI BAWAH RESIDENT AYU -->
+    <div class="apocalipto-sub">APOCALIPTO: Ayu Julita, Ada hati? Ada Cinta Yang Tak Mati.</div>
+<style>
+.apocalipto-sub {
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  font-size: 18px;
+  color: #999;
+  margin-top: -10px;
+  letter-spacing: 2px;
+  animation: apocaliptoFlash 3s infinite;
+  animation-delay: 0.5s; /* Biar gantian sama yang atas */
+}
+
+</style>
+    
+    <audio src="honestly.mp3" loop controls></audio>
+  </div>
+
+
+
+</script>
+
+
+
+    <script>
+    const textRE = document.getElementById('textRE');
+
+    function createBloodDrop(element) {
+      const drop = document.createElement('div');
+      drop.className = 'blood-drop';
+      const rect = element.getBoundingClientRect();
+      drop.style.left = (Math.random() * 0.8 + 0.1) * rect.width + 'px';
+      drop.style.top = rect.height - 5 + 'px';
+      drop.style.animationDuration = (Math.random() * 1.5 + 1.5) + 's';
+      element.appendChild(drop);
+      setTimeout(() => drop.remove(), 3000);
+    }
+
+    setInterval(() => createBloodDrop(textRE), 600);
+
+
+<script>
+  // Ambil elemen suara sama gambar Krauser
+  const knifeSound = document.getElementById('knifeSound');
+  const krauserImg = document.getElementById('krauserImg');
+
+  // Function buat muter suara pas animasi jalan
+  krauserImg.addEventListener('animationiteration', () => {
+    // Reset suara biar bisa diputer ulang
+    knifeSound.currentTime = 0; 
+    // Play! Volume 50% biar gak budek
+    knifeSound.volume = 0.5;
+    knifeSound.play();
+  });
+
+  // Play sekali pas halaman pertama dibuka
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      knifeSound.volume = 0.5;
+      knifeSound.play();
+    }, 500); // Delay 0.5 detik biar pas sama flash
+  });
+</script>
+
+</body>
+
+
+</html>
